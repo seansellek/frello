@@ -1,0 +1,30 @@
+<head>
+  <title>Frello</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <ul class="nav navbar-nav navbar-right">
+        {{> loginButtons}}
+      </ul>
+    </div>
+  </nav>
+  <header class="page-header">
+    <h1>Welcome to Frello! <small>A Trello clone build in Meteor.js by Sean Sellek</small></h1>
+  </header>
+  <main class="container">
+    {{#if currentUser}}
+      <form class="new-list form-inline">
+        <input type="text" name="text" class="form-control" placeholder="Create a new list">
+      </form>
+    {{/if}}
+    {{#each lists}}
+      {{> list}}
+    {{/each}}
+  </main>
+  
+  <main>
+    
+  </main>
+</body>

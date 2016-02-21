@@ -1,0 +1,26 @@
+.list {
+  width: 300px;
+  float: left;
+  margin: 10px;
+}
+header h1 {
+  padding: 0 15px;
+}
+body { 
+  padding-top: 70px;
+}
+form.new-list {
+  margin-left: 10px;
+}
+button.delete {
+  display: none;
+  float: right;
+}
+
+.list .panel-heading, .task {
+  &:hover {
+    button.delete {
+      display: inline-block;
+    }
+  }
+}
