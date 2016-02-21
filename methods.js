@@ -28,8 +28,24 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     Lists.update(listId, { $push: { tasks: {
+      _id: new Meteor.Collection.ObjectID(),
       name: name,
       createdAt: new Date()
     }}}); 
+  },
+  removeTask: function(listId, taskId) {
+    var list = Lists.findOne(listId);
+    if (list.owner !== Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+    Lists.update(listId, { $pull: { tasks: {_id: taskId}}});
+  },
+  toggleCompleteTask: function(listId, task) {
+    var list = Lists.findOne(listId);
+    if (list.owner !== Meteor.userId()) {
+      throw new Meteor.Error("not-authorized");
+    }
+    var completed = !! task.completed;
+    Lists.update({ _id: listId, "tasks._id": task._id }, { $set: { "tasks.$.completed": ! completed }});
   }
 })
