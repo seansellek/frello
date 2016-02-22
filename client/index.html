@@ -4,14 +4,14 @@
 </head>
 <body>
   <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+    <div class="login-form">
       <ul class="nav navbar-nav navbar-right">
         {{> loginButtons}}
       </ul>
     </div>
   </nav>
   <header class="page-header">
-    <h1>Welcome to Frello! <small>A Trello clone build in Meteor.js by Sean Sellek</small></h1>
+    <h1>Frello <small>A Trello clone</small></h1>
   </header>
   <main class="container">
     {{#if currentUser}}
@@ -23,8 +23,7 @@
       {{> list}}
     {{/each}}
   </main>
-  
-  <main>
-    
-  </main>
+  <footer class="navbar navbar-default navbar-fixed-bottom">
+    <p class="navbar-text">Built in Meteor.js by Sean Sellek</p>
+  </footer>
 </body>
